@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- 声明HTML5文档类型 -->
+<html>
+  <head>
+    <!-- 设置页面字符编码为UTF-8 -->
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <!-- 标题栏显示内容 -->
+    <title>正在重定向</title>
+    <!-- 多语言声明 -->
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://www.boxteam.eu.org/zh-cn/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="en-US"
+      href="https://www.boxteam.eu.org/en-us/index.html"
+    />
+    <!-- 默认语言 -->
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.boxteam.eu.org/zh-cn/index.html"
+    />
+    <!-- 使用JavaScript实现语言检测和跳转 -->
+    <script>
+      // 获取浏览器语言（兼容不同浏览器）
+      const lang = navigator.language || navigator.userLanguage;
+      // 提取语言代码前两位（如en/zh）
+      const langCode = lang.substring(0, 2).toLowerCase();
+
+      // 根据语言代码跳转不同页面（可根据需要扩展）
+      if (langCode === "zh") {
+        window.location.href = "/zh-cn/index.html"; // 中文用户跳转
+      } else if (langCode === "en") {
+        window.location.href = "/en-us/index.html"; // 英文用户跳转
+      } else {
+        window.location.href = "/zh-cn/index.html"; // 其他语言跳转默认页
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 页面主体内容保留原有结构 -->
+    <p>正在跳转，请稍候...</p>
+    <!-- 可视化提示信息 -->
+    <!-- 注释说明：此页面会根据系统语言自动跳转 -->
+  </body>
+</html>
