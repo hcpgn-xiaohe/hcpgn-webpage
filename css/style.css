@@ -97,24 +97,50 @@
     flex-wrap: wrap;
     /* 水平居中对齐 */
     justify-content: center;
+    /* 调整内边距 */
+    padding: 0.8rem 1rem;
+    /* 减少子元素间距 */
+    gap: 0.8rem;
   }
 
   /* 移动端logo样式 */
   .logo {
-    /* 占满视口宽度 */
-    width: 100vw;
+    /* 占满容器宽度 */
+    width: 100%;
     /* 限制最大高度 */
-    max-height: 60px;
+    max-height: 50px;
     /* 水平内边距 */
-    padding: 0 2rem;
+    padding: 0 1rem;
     /* 包含内边距计算 */
     box-sizing: border-box;
     /* 居中对齐 */
-    margin: 0 auto;
+    margin: 0 auto 0.5rem;
     /* 强制独占一行 */
     flex: 0 0 100%;
     /* 图片自适应 */
     object-fit: contain;
+  }
+
+  /* 移动端导航项样式 */
+  .nav-item {
+    /* 调整外边距 */
+    margin: 0 5px;
+    /* 字体大小 */
+    font-size: 0.9rem;
+  }
+
+  /* 移动端语言切换样式 */
+  .lang-switch {
+    /* 强制独占一行 */
+    flex: 0 0 100%;
+    /* 水平居中 */
+    justify-content: center;
+    /* 上方内边距 */
+    padding-top: 0.5rem;
+    /* 上方边框 */
+    border-top: 1px solid #eaeaea;
+    /* 移除左侧自动外边距 */
+    margin-left: 0;
   }
 }
 
@@ -231,16 +257,20 @@ main h1 {
 
   .game {
     /* 在移动端每行显示两个 */
-    flex: 1 1 calc(50% - 1rem);
+    flex: 1 1 calc(50% - 0.8rem);
     /* 最小宽度 */
-    min-width: 140px;
+    min-width: 130px;
     /* 最大宽度 */
-    max-width: calc(50% - 1rem);
+    max-width: calc(50% - 0.8rem);
+    /* 调整内边距 */
+    padding: 0.8rem;
+    /* 调整外边距 */
+    margin: 0.4rem;
   }
 
   .game-icon {
     /* 调整移动端图片最大高度 */
-    max-height: 100px;
+    max-height: 90px;
   }
 
   /* 移动端主标题样式 */
@@ -249,6 +279,38 @@ main h1 {
     text-align: center;
     /* 重置左侧外边距 */
     margin-left: 0;
+    /* 调整字体大小 */
+    font-size: 1.5rem;
+    /* 调整下方外边距 */
+    margin-bottom: 0.8rem;
+  }
+
+  /* 移动端内容区域样式 */
+  .content {
+    /* 调整内边距 */
+    padding: 1.5rem 1rem;
+  }
+
+  /* 移动端底部样式 */
+  .footer {
+    /* 调整内边距 */
+    padding: 1.5rem 1rem;
+    /* 调整上下内边距 */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* 移动端社交图标 */
+  .social-icon {
+    /* 调整大小 */
+    width: 35px;
+    height: 35px;
+  }
+
+  /* 移动端分割线样式 */
+  .divider-1px {
+    /* 调整上下外边距 */
+    margin: 1.5rem 0;
   }
 }
 
