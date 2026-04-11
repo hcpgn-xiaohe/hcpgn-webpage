@@ -1,3 +1,74 @@
+/* MiSans字体定义 */
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Demibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Semibold.woff2") format("woff2");
+  font-weight: 650;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Heavy.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MiSans";
+  src: url("/fonts/MiSans-Normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* 全局样式重置 */
 * {
   /* 清除所有元素默认外边距 */
@@ -6,6 +77,33 @@
   padding: 0;
   /* 统一盒模型计算方式 */
   box-sizing: border-box;
+  /* 应用MiSans字体 */
+  font-family:
+    "MiSans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* 页面容器样式 */
+body {
+  /* 启用Flex布局 */
+  display: flex;
+  /* 垂直排列 */
+  flex-direction: column;
+  /* 最小高度为视口高度 */
+  min-height: 100vh;
+  /* 移除默认边距 */
+  margin: 0;
+  /* 移除默认内边距 */
+  padding: 0;
+}
+
+/* 主内容区域样式 */
+main {
+  /* 占据剩余空间 */
+  flex: 1;
 }
 
 /* 导航栏样式 */
@@ -19,11 +117,84 @@
   /* 内边距（上/右/下/左） */
   padding: 1rem 2rem;
   /* 背景颜色 */
-  background: #f8f8f8;
+  background: #ffffff;
   /* 子元素水平间距 */
   gap: 1.5rem;
   /* 启用相对定位 */
   position: relative;
+  /* 允许子元素自动换行 */
+  flex-wrap: wrap;
+  /* 添加底部阴影 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* 固定在顶部 */
+  position: sticky;
+  top: 0;
+  /* 确保在最上层 */
+  z-index: 100;
+}
+
+/* 汉堡菜单按钮样式 */
+.hamburger {
+  /* 显示为块元素 */
+  display: none;
+  /* 背景透明 */
+  background: transparent;
+  /* 边框无 */
+  border: none;
+  /* 光标指针 */
+  cursor: pointer;
+  /* 内边距 */
+  padding: 0.5rem;
+  /* 右侧外边距 */
+  margin-right: 1rem;
+  /* 启用相对定位 */
+  position: relative;
+  /* z-index确保在最上层 */
+  z-index: 1000;
+}
+
+/* 汉堡菜单线条样式 */
+.hamburger .bar {
+  /* 显示为块元素 */
+  display: block;
+  /* 宽度 */
+  width: 25px;
+  /* 高度 */
+  height: 3px;
+  /* 背景颜色 */
+  background-color: #333;
+  /* 上下外边距 */
+  margin: 5px 0;
+  /* 过渡效果 */
+  transition: 0.3s;
+  /* 圆角 */
+  border-radius: 3px;
+}
+
+/* 导航菜单容器 */
+.nav-menu {
+  /* 启用Flex布局 */
+  display: flex;
+  /* 垂直居中 */
+  align-items: center;
+  /* 子元素水平间距 */
+  gap: 1.5rem;
+  /* 允许子元素自动换行 */
+  flex-wrap: wrap;
+  /* 占据剩余空间 */
+  flex: 1;
+  /* 语言切换组件右对齐 */
+  justify-content: space-between;
+}
+
+/* 导航链接容器 */
+.nav-links {
+  /* 启用Flex布局 */
+  display: flex;
+  /* 垂直居中 */
+  align-items: center;
+  /* 子元素水平间距 */
+  gap: 1.5rem;
   /* 允许子元素自动换行 */
   flex-wrap: wrap;
 }
@@ -40,12 +211,26 @@
   cursor: pointer;
   /* 禁止文字换行 */
   white-space: nowrap;
+  /* 过渡效果 */
+  transition: color 0.3s ease;
+}
+
+/* 导航项激活状态样式 */
+.nav-item.active {
+  /* 高亮颜色 */
+  color: orange;
+  /* 字体加粗 */
+  font-weight: 600;
 }
 
 /* logo样式 */
 .logo {
   /* 固定高度 */
-  height: 40px;
+  height: 50px;
+  /* 固定宽度 */
+  width: auto;
+  /* 右侧外边距 */
+  margin-right: 1rem;
 }
 
 /* 语言切换样式（桌面端） */
@@ -93,54 +278,142 @@
 @media (max-width: 768px) {
   /* 导航栏适配 */
   .navbar {
-    /* 允许子元素换行 */
-    flex-wrap: wrap;
-    /* 水平居中对齐 */
-    justify-content: center;
-    /* 调整内边距 */
-    padding: 0.8rem 1rem;
+    /* 水平两端对齐 */
+    justify-content: space-between;
+    /* 保持与桌面端相同的内边距 */
+    padding: 1rem 2rem;
     /* 减少子元素间距 */
-    gap: 0.8rem;
+    gap: 1.5rem;
+  }
+
+  /* 显示汉堡菜单按钮 */
+  .hamburger {
+    /* 显示为块元素 */
+    display: block;
   }
 
   /* 移动端logo样式 */
   .logo {
-    /* 占满容器宽度 */
+    /* 高度 */
+    height: 50px;
+    /* 宽度自动 */
+    width: auto;
+    /* 左侧内边距 */
+    padding-left: 1rem;
+    /* 移除外边距 */
+    margin: 0;
+    /* 取消独占一行 */
+    flex: none;
+  }
+
+  /* 移动端汉堡菜单按钮 */
+  .hamburger {
+    /* 相对定位 */
+    position: relative;
+    /* 右上角 */
+    top: 0;
+    right: 0;
+    /* 右侧内边距 */
+    padding-right: 1rem;
+  }
+
+  /* 移动端导航栏 */
+  .navbar {
+    /* 水平两端对齐 */
+    justify-content: space-between;
+  }
+
+  /* 移动端汉堡菜单按钮 */
+  .hamburger {
+    /* 相对定位 */
+    position: relative;
+    /* 右上角 */
+    top: 0;
+    right: 0;
+  }
+
+  /* 导航菜单容器 */
+  .nav-menu {
+    /* 隐藏菜单 */
+    display: none;
+    /* 垂直排列 */
+    flex-direction: column;
+    /* 水平居中 */
+    align-items: center;
+    /* 上方内边距 */
+    padding-top: 1rem;
+    /* 下方内边距 */
+    padding-bottom: 1rem;
+    /* 水平居中对齐 */
+    justify-content: center;
+    /* 绝对定位 */
+    position: absolute;
+    /* 顶部位置 */
+    top: 100%;
+    /* 左侧位置 */
+    left: 0;
+    /* 宽度 */
     width: 100%;
-    /* 限制最大高度 */
-    max-height: 50px;
-    /* 水平内边距 */
-    padding: 0 1rem;
-    /* 包含内边距计算 */
-    box-sizing: border-box;
-    /* 居中对齐 */
-    margin: 0 auto 0.5rem;
-    /* 强制独占一行 */
-    flex: 0 0 100%;
-    /* 图片自适应 */
-    object-fit: contain;
+    /* 背景颜色，添加透明度 */
+    background: rgba(255, 255, 255, 0.95);
+    /* 阴影效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 层级 */
+    z-index: 99;
+  }
+
+  /* 移动端导航链接容器 */
+  .nav-links {
+    /* 垂直排列 */
+    flex-direction: column;
+    /* 水平居中 */
+    align-items: center;
+    /* 子元素垂直间距 */
+    gap: 0.5rem;
+  }
+
+  /* 导航菜单展开状态 */
+  .nav-menu.active {
+    /* 显示菜单 */
+    display: flex;
   }
 
   /* 移动端导航项样式 */
   .nav-item {
     /* 调整外边距 */
-    margin: 0 5px;
+    margin: 0.5rem 0;
     /* 字体大小 */
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   /* 移动端语言切换样式 */
   .lang-switch {
-    /* 强制独占一行 */
-    flex: 0 0 100%;
-    /* 水平居中 */
-    justify-content: center;
-    /* 上方内边距 */
-    padding-top: 0.5rem;
-    /* 上方边框 */
-    border-top: 1px solid #eaeaea;
     /* 移除左侧自动外边距 */
     margin-left: 0;
+    /* 上方内边距 */
+    padding-top: 1rem;
+    /* 上方边框 */
+    border-top: 1px solid #eaeaea;
+    /* 宽度 */
+    width: 100%;
+    /* 水平居中 */
+    justify-content: center;
+  }
+
+  /* 汉堡菜单激活状态 */
+  .hamburger.active .bar:nth-child(1) {
+    /* 旋转45度 */
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    /* 透明度为0 */
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    /* 旋转45度 */
+    transform: rotate(45deg) translate(-5px, -6px);
   }
 }
 
@@ -150,6 +423,8 @@
   padding: 2rem;
   /* 文字居中 */
   text-align: center;
+  /* 背景颜色 */
+  background: #fafafa;
 }
 
 /* 页面主标题样式 */
@@ -161,9 +436,17 @@ main h1 {
   /* 字体大小 */
   font-size: 2rem;
   /* 字体加粗 */
-  font-weight: bold;
+  font-weight: 700;
   /* 确保标题宽度占满容器 */
   width: 100%;
+}
+
+/* 确保主内容区域没有多余的边距 */
+main {
+  /* 移除上下外边距 */
+  margin: 0;
+  /* 移除内边距 */
+  padding: 0;
 }
 
 /* 段落样式 */
@@ -239,7 +522,7 @@ main h1 {
   /* 上边距 */
   margin-top: 1rem;
   /* 字体加粗 */
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* 游戏项悬停效果 */
@@ -314,21 +597,13 @@ main h1 {
   }
 }
 
-/* 分割线样式 */
-.divider-5px {
-  /* 固定高度 */
-  height: 5px;
-  /* 橙色背景 */
-  background: orange;
-}
-
 .divider-1px {
   /* 固定高度 */
   height: 1px;
   /* 浅灰色背景 */
   background: #eaeaea;
   /* 上下外边距 */
-  margin: 2rem 0;
+  margin: 0;
 }
 
 /* 底部样式 */
@@ -340,6 +615,10 @@ main h1 {
   /* 增加上下内边距 */
   padding-top: 3rem;
   padding-bottom: 3rem;
+  /* 背景颜色 */
+  background: #f5f5f5;
+  /* 上方边框 */
+  border-top: 1px solid #e0e0e0;
 }
 
 /* 社交图标容器 */
@@ -362,4 +641,30 @@ main h1 {
   width: 40px;
   /* 固定高度 */
   height: 40px;
+}
+
+/* MiSans字体声明样式 */
+.font-credit {
+  /* 上方外边距 */
+  margin-top: 2rem;
+  /* 字体大小 */
+  font-size: 0.85rem;
+  /* 文字颜色 */
+  color: #999;
+}
+
+/* MiSans链接样式 */
+.font-credit a {
+  /* 文字颜色 */
+  color: #666;
+  /* 移除下划线 */
+  text-decoration: none;
+  /* 过渡效果 */
+  transition: color 0.3s ease;
+}
+
+/* MiSans链接悬停效果 */
+.font-credit a:hover {
+  /* 悬停颜色 */
+  color: #333;
 }

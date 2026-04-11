@@ -18,13 +18,32 @@
     <link rel="alternate" hreflang="x-default" href="/zh-cn/ai/index.html" />
 
     <!-- 页面标题（SEO核心要素） -->
-    <title>AI制作</title>
+    <title>AI制作 - 盒鸽 HcDove</title>
+
+    <!-- 页面描述（SEO核心要素） -->
+    <meta name="description" content="盒鸽 HcDove - 专注于游戏和科技的团队" />
+    <!-- 页面关键词（SEO核心要素） -->
+    <meta name="keywords" content="盒鸽,HcDove,游戏,科技,团队" />
 
     <!-- 外部CSS样式表引用（带版本号控制缓存） -->
-    <link rel="stylesheet" href="/css/style.css?v=1.0.5" />
+    <link rel="stylesheet" href="/css/style.css?v=1.0.8" />
     <!-- 网站图标引用 -->
     <link rel="icon" href="/images/logo.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/logo.png" />
+    <!-- 导航菜单切换脚本 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        if (hamburger && navMenu) {
+          hamburger.addEventListener("click", function () {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+          });
+        }
+      });
+    </script>
   </head>
 
   <body>
@@ -38,33 +57,52 @@
         <img src="/images/logo.png" alt="Logo" class="logo" />
       </a>
 
-      <!-- 主导航链接组 -->
-      <!-- 首页链接 -->
-      <a href="/zh-cn/index.html" class="nav-item">主页</a>
-      <a href="/zh-cn/games/index.html" class="nav-item">游戏</a>
-      <a href="/zh-cn/ai/index.html" class="nav-item">AI制作</a>
-      <!-- 关于页面链接 -->
-      <a href="#main" class="nav-item">关于</a>
+      <!-- 汉堡菜单按钮 -->
+      <button class="hamburger" aria-label="菜单">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-      <!-- 语言切换组件 -->
-      <div class="lang-switch">
-        <!-- 当前语言标识 -->
-        <span class="active">中</span>
-        <!-- 语言分隔符 -->
-        <span class="or1">|</span>
-        <!-- 英文语言链接 -->
-        <a href="/en-us/ai/index.html" class="langchosen">En</a>
+      <!-- 导航菜单容器 -->
+      <div class="nav-menu">
+        <!-- 导航链接容器 -->
+        <div class="nav-links">
+          <!-- 主导航链接组 -->
+          <!-- 首页链接 -->
+          <a href="/zh-cn/index.html" class="nav-item">主页</a>
+          <a href="/zh-cn/games/index.html" class="nav-item">游戏</a>
+          <a href="/zh-cn/ai/index.html" class="nav-item active">AI制作</a>
+          <!-- 关于页面链接 -->
+          <a href="/zh-cn/about/" class="nav-item">关于</a>
+        </div>
+
+        <!-- 语言切换组件 -->
+        <div class="lang-switch">
+          <!-- 当前语言标识 -->
+          <span class="active">中</span>
+          <!-- 语言分隔符 -->
+          <span class="or1">|</span>
+          <!-- 英文语言链接 -->
+          <a href="/en-us/ai/index.html" class="langchosen">En</a>
+        </div>
       </div>
     </header>
-
-    <!-- 5px主题色分割线（视觉层级划分） -->
-    <div class="divider-5px"></div>
 
     <main>
       <h1>AI制作</h1>
       <div class="games">
-        <a href="/zh-cn/ai/人生已完成清单.html" class="game">
-          <img src="/images/logo.png" alt="人生已完成清单" class="game-icon" />
+        <a
+          href="/zh-cn/ai/人生已完成清单.html"
+          class="game"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="/images/人生已完成清单.png"
+            alt="人生已完成清单"
+            class="game-icon"
+          />
           <div class="game-title">人生已完成清单</div>
         </a>
       </div>
@@ -100,6 +138,15 @@
           <!-- 抖音图标（需保持可访问性） -->
           <img src="/images/douyin.png" alt="抖音" class="social-icon" />
         </a>
+      </div>
+
+      <!-- MiSans字体声明 -->
+      <div class="font-credit">
+        本网站使用
+        <a href="https://hyperos.mi.com/font" target="_blank" rel="noopener"
+          >MiSans</a
+        >
+        字体
       </div>
     </footer>
   </body>
