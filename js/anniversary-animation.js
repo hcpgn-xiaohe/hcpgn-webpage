@@ -183,5 +183,6 @@ function initAnniversaryAnimation() {
 
 // 页面加载完成后执行，添加1秒延迟
 window.addEventListener("DOMContentLoaded", function () {
+  console.log("Anniversary animation script loaded");
   setTimeout(initAnniversaryAnimation, 1000); // 1000毫秒延迟
 });
