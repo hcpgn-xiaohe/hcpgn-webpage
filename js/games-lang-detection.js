@@ -5,9 +5,9 @@ const langCode = lang.substring(0, 2).toLowerCase();
 
 // 根据语言代码跳转不同页面（可根据需要扩展）
 if (langCode === "zh") {
-  window.location.href = "/zh-cn/games/index.html"; // 中文用户跳转
+  window.location.href = "/zh-cn/games/"; // 中文用户跳转
 } else if (langCode === "en") {
-  window.location.href = "/en-us/games/index.html"; // 英文用户跳转
+  window.location.href = "/en-us/games/"; // 英文用户跳转
 } else {
-  window.location.href = "/zh-cn/games/index.html"; // 其他语言跳转默认页
+  window.location.href = "/zh-cn/games/"; // 其他语言跳转默认页
 }

@@ -5,9 +5,9 @@ const langCode = lang.substring(0, 2).toLowerCase();
 
 // 检测语言并跳转到对应页面
 if (langCode === "zh") {
-  window.location.href = "/zh-cn/index.html"; // 中文用户跳转
+  window.location.href = "/zh-cn/"; // 中文用户跳转
 } else if (langCode === "en") {
-  window.location.href = "/en-us/index.html"; // 英文用户跳转
+  window.location.href = "/en-us/"; // 英文用户跳转
 } else {
-  window.location.href = "/zh-cn/index.html"; // 其他语言默认跳转到中文页面
+  window.location.href = "/zh-cn/"; // 其他语言默认跳转到中文页面
 }

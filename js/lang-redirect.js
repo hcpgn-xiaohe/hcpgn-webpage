@@ -24,29 +24,29 @@ function buildTargetPath() {
     if (langCode === 'zh') {
       // 根目录或其他路径，跳转到中文首页
       if (currentPath === '/' || currentPath === '/index.html') {
-        return '/zh-cn/index.html';
+        return '/zh-cn/';
       } else if (currentPath.startsWith('/games/')) {
         return currentPath.replace('/games/', '/zh-cn/games/');
       } else {
-        return '/zh-cn/index.html';
+        return '/zh-cn/';
       }
     } else if (langCode === 'en') {
       // 根目录或其他路径，跳转到英文首页
       if (currentPath === '/' || currentPath === '/index.html') {
-        return '/en-us/index.html';
+        return '/en-us/';
       } else if (currentPath.startsWith('/games/')) {
         return currentPath.replace('/games/', '/en-us/games/');
       } else {
-        return '/en-us/index.html';
+        return '/en-us/';
       }
     } else {
       // 其他语言默认使用中文
       if (currentPath === '/' || currentPath === '/index.html') {
-        return '/zh-cn/index.html';
+        return '/zh-cn/';
       } else if (currentPath.startsWith('/games/')) {
         return currentPath.replace('/games/', '/zh-cn/games/');
       } else {
-        return '/zh-cn/index.html';
+        return '/zh-cn/';
       }
     }
   }
