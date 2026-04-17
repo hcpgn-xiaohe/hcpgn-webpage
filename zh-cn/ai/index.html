@@ -35,20 +35,8 @@
       sizes="32x32"
     />
     <link rel="apple-touch-icon" href="/images/logo.svg" />
-    <!-- 导航菜单切换脚本 -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
-
-        if (hamburger && navMenu) {
-          hamburger.addEventListener("click", function () {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-          });
-        }
-      });
-    </script>
+    <!-- 导航脚本 -->
+    <script src="/js/navigation.js"></script>
   </head>
 
   <body>
@@ -57,7 +45,7 @@
     <!-- 导航栏容器 -->
     <header class="navbar">
       <!-- Logo链接（页面主LOGO） -->
-      <a href="/zh-cn/" class="nav-item">
+      <a href="/zh-cn/index.html" class="nav-item">
         <!-- 品牌Logo图像（需保持可访问性） -->
         <img src="/images/logo.svg" alt="Logo" class="logo" />
       </a>
@@ -75,11 +63,11 @@
         <div class="nav-links">
           <!-- 主导航链接组 -->
           <!-- 首页链接 -->
-          <a href="/zh-cn/" class="nav-item">主页</a>
-          <a href="/zh-cn/games/" class="nav-item">游戏</a>
-          <a href="/zh-cn/ai/" class="nav-item active">AI制作</a>
+          <a href="/zh-cn/index.html" class="nav-item">主页</a>
+          <a href="/zh-cn/games/index.html" class="nav-item">游戏</a>
+          <a href="/zh-cn/ai/index.html" class="nav-item active">AI制作</a>
           <!-- 关于页面链接 -->
-          <a href="/zh-cn/about/" class="nav-item">关于</a>
+          <a href="/zh-cn/about/index.html" class="nav-item">关于</a>
         </div>
 
         <!-- 语言切换组件 -->
@@ -89,7 +77,7 @@
           <!-- 语言分隔符 -->
           <span class="or1">|</span>
           <!-- 英文语言链接 -->
-          <a href="/en-us/ai/" class="langchosen">En</a>
+          <a href="/en-us/ai/index.html" class="langchosen">En</a>
         </div>
       </div>
     </header>
