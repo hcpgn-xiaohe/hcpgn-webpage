@@ -1,34 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>关于-盒鸽 HcDove</title>
-    <meta
-      name="description"
-      content="关于盒鸽 HcDove，专注于游戏和科技的团队"
-    />
+    <meta name="description" content="关于盒鸽 HcDove，专注于游戏和科技的团队" />
     <meta name="keywords" content="盒鸽,HcDove,游戏,科技,团队介绍" />
-    <!-- 语言切换 -->
+    <title>关于 - 盒鸽 HcDove</title>
+
+    <!-- 多语言版本声明 -->
     <link rel="alternate" hreflang="zh-CN" href="/zh-cn/about/" />
     <link rel="alternate" hreflang="en-US" href="/en-us/about/" />
-    <!-- 默认语言版本 -->
     <link rel="alternate" hreflang="x-default" href="/zh-cn/about/" />
-  </head>
-  <body>
-    <script>
-      // 检测浏览器语言，跳转到对应语言的关于页面
-      function getBrowserLanguage() {
-        const lang = navigator.language || navigator.userLanguage;
-        return lang.toLowerCase();
-      }
 
-      const browserLang = getBrowserLanguage();
-      if (browserLang.startsWith("en")) {
-        window.location.href = "/en-us/about/";
-      } else {
-        window.location.href = "/zh-cn/about/";
-      }
-    </script>
-  </body>
+    <!-- 样式表 -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- 网站图标 -->
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/logo.svg" />
+
+    <!-- 语言检测脚本 -->
+    <script src="/js/lang-detection.js"></script>
+  </head>
+  <body></body>
 </html>

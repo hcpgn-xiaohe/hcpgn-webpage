@@ -1,40 +1,25 @@
-<!doctype html>
-<!-- 声明HTML5文档类型 -->
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
   <head>
-    <!-- 设置页面字符编码为UTF-8 -->
-    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
-    <!-- 响应式视口设置（移动端关键配置） -->
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 多语言声明 -->
+    <title>盒鸽 HcDove</title>
+
+    <!-- 多语言版本声明 -->
     <link rel="alternate" hreflang="zh-CN" href="/zh-cn/" />
     <link rel="alternate" hreflang="en-US" href="/en-us/" />
-
-    <!-- 默认语言版本 -->
     <link rel="alternate" hreflang="x-default" href="/zh-cn/" />
-    <!-- 外部CSS样式表引用（带版本号控制缓存） -->
-    <link rel="stylesheet" href="/css/style.css?v=1.0.8" />
-    <!-- 网站图标引用 -->
+
+    <!-- 样式表 -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- 网站图标 -->
     <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/logo.svg" />
-    <!-- 外部JavaScript文件引用 -->
-    <script src="/js/lang-detection.js"></script>
-    <!-- 导航菜单切换脚本 -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
 
-        if (hamburger && navMenu) {
-          hamburger.addEventListener("click", function () {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-          });
-        }
-      });
-    </script>
+    <!-- 语言检测脚本 -->
+    <script src="/js/lang-detection.js"></script>
   </head>
   <body>
-    <!-- 页面内容将由JavaScript动态生成 -->
+    <!-- 页面内容将由语言检测后重定向到对应版本 -->
   </body>
 </html>
