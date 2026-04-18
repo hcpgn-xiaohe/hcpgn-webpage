@@ -3,6 +3,7 @@
  */
 
 const initAnniversaryAnimation = () => {
+  console.log('[Anniversary] 初始化四周年动画');
   const style = document.createElement("style");
   style.id = "anniversary-styles";
   style.textContent = `
@@ -143,5 +144,6 @@ const initAnniversaryAnimation = () => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
+  console.log('[Anniversary] DOM 已加载，开始动画');
   setTimeout(initAnniversaryAnimation, 1000);
 });
