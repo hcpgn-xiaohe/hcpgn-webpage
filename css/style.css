@@ -155,8 +155,16 @@ main {
 
 .lang-switch .or1,
 .lang-switch .langchosen,
+.lang-switch .lang-btn,
 .lang-switch .active {
   font-size: 16px;
+}
+
+.lang-switch .lang-btn {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .lang-switch .or1 { color: #ccc; }
@@ -203,12 +211,12 @@ main h1 {
   min-width: 200px;
   max-width: calc(25% - 1rem);
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: center;
-  background: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .game-icon {
@@ -225,6 +233,8 @@ main h1 {
 
 .game:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 
 /* 底部 */
@@ -266,6 +276,145 @@ main h1 {
 }
 
 .font-credit a:hover { color: #333; }
+
+/* 首页栏目展示 */
+.home-categories {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  padding: 2rem 3rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.category-icon {
+  color: #666;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+  color: #ff6b00;
+}
+
+.category-card h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .home-categories {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 0.75rem !important;
+  }
+  .category-card {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    padding: 1.25rem !important;
+    gap: 1rem !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  }
+  .category-card:last-child {
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+  .category-card:hover {
+    background: #fff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  }
+  .category-icon {
+    margin-bottom: 0 !important;
+    width: 40px;
+    height: 40px;
+  }
+  .category-icon svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .category-card h3 {
+    font-size: 1rem;
+    align-self: center;
+  }
+}
+
+/* AI页分栏 */
+.ai-categories {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.ai-category {
+  flex: 1;
+  min-width: 0;
+}
+
+.ai-category-divider {
+  width: 1px;
+  background: #e0e0e0;
+  margin: 0 1rem;
+}
+
+.ai-category h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.ai-category .games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+.ai-category .games p {
+  color: #999;
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .ai-categories {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .ai-category-divider {
+    width: auto;
+    height: 1px;
+    margin: 0.5rem 0;
+  }
+}
 
 /* 移动端适配 */
 @media (max-width: 768px) {
@@ -356,5 +505,5 @@ main h1 {
 
   .social-icon { width: 35px; height: 35px; }
 
-  .divider-1px { margin: 1.5rem 0; }
+  .divider-1px { margin: 0; }
 }

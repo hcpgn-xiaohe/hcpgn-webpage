@@ -144,6 +144,5 @@ const initAnniversaryAnimation = () => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log('[Anniversary] DOM 已加载，开始动画');
   setTimeout(initAnniversaryAnimation, 1000);
 });
