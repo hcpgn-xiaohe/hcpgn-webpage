@@ -38,50 +38,13 @@
     <link rel="apple-touch-icon" href="/images/logo.svg" />
     <!-- 导航脚本 -->
     <script src="/js/navigation.js?v=1.0.8.4"></script>
+    <!-- 组件加载器 -->
+    <script src="/js/component-loader.js?v=1.0.8.4"></script>
   </head>
 
   <body>
-    <!-- 页面主体内容 -->
-
-    <!-- 导航栏容器 -->
-    <header class="navbar">
-      <!-- Logo链接（页面主LOGO） -->
-      <a href="/zh-cn/index.html" class="nav-item">
-        <!-- 品牌Logo图像（需保持可访问性） -->
-        <img src="/images/logo.svg" alt="Logo" class="logo" />
-      </a>
-
-      <!-- 汉堡菜单按钮 -->
-      <button class="hamburger" aria-label="菜单">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <!-- 导航菜单容器 -->
-      <div class="nav-menu">
-        <!-- 导航链接容器 -->
-        <div class="nav-links">
-          <!-- 主导航链接组 -->
-          <!-- 首页链接 -->
-          <a href="/zh-cn/index.html" class="nav-item">主页</a>
-          <a href="/zh-cn/games/index.html" class="nav-item">游戏</a>
-          <a href="/zh-cn/ai/index.html" class="nav-item">AI制作</a>
-          <!-- 关于页面链接 -->
-          <a href="/zh-cn/about/index.html" class="nav-item active">关于</a>
-        </div>
-
-        <!-- 语言切换组件 -->
-        <div class="lang-switch">
-          <!-- 当前语言标识 -->
-          <span class="active">中</span>
-          <!-- 语言分隔符 -->
-          <span class="or1">|</span>
-          <!-- 英文语言链接 -->
-          <a href="/en-us/about/index.html" class="langchosen">En</a>
-        </div>
-      </div>
-    </header>
+    <!-- 导航栏占位符 -->
+    <div id="navbar-placeholder"></div>
 
     <!-- 页面主内容区域 -->
     <main class="content">
@@ -96,43 +59,7 @@
     <!-- 1px辅助分割线（内容间隔） -->
     <div class="divider-1px"></div>
 
-    <!-- 页面底部区域 -->
-    <footer class="footer">
-      <!-- 联系方式 -->
-      <div>联系我们</div>
-
-      <!-- 社交媒体图标组 -->
-      <div class="social-icons">
-        <!-- 哔哩哔哩官方链接 -->
-        <a
-          href="https://space.bilibili.com/1016692202/"
-          title="哔哩哔哩"
-          target="_blank"
-          rel="noopener"
-        >
-          <!-- 哔哩哔哩图标（需保持可访问性） -->
-          <img src="/images/bilibili.png" alt="哔哩哔哩" class="social-icon" />
-        </a>
-        <!-- 抖音官方链接 -->
-        <a
-          href="https://www.douyin.com/user/MS4wLjABAAAALiqkpu3Zp8I56vEpV46mEreYBIA2jFqRk-wSPZqOVbE/"
-          title="抖音"
-          target="_blank"
-          rel="noopener"
-        >
-          <!-- 抖音图标（需保持可访问性） -->
-          <img src="/images/douyin.png" alt="抖音" class="social-icon" />
-        </a>
-      </div>
-
-      <!-- MiSans字体声明 -->
-      <div class="font-credit">
-        本网站使用
-        <a href="https://hyperos.mi.com/font/" target="_blank" rel="noopener"
-          >MiSans</a
-        >
-        字体
-      </div>
-    </footer>
+    <!-- 底部占位符 -->
+    <div id="footer-placeholder"></div>
   </body>
 </html>
