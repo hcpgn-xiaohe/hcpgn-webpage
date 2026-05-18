@@ -12,6 +12,7 @@ class BannerSlider {
     this.interval = options.interval || 5000;
     this.transitionDuration = options.transitionDuration || 500;
     this.brightnessThreshold = options.brightnessThreshold || 0.5; // 亮度阈值
+    this.bannerVersion = '1.0.9.1'; // 版本号，更新后会自动清除旧数据
     
     this.currentIndex = 0;
     this.banners = [];
@@ -122,7 +123,18 @@ class BannerSlider {
   // 加载Banner数据
   loadBanners() {
     const stored = localStorage.getItem('hcpgn-banners');
+    const storedVersion = localStorage.getItem('hcpgn-banner-version');
     const defaults = this.getDefaultBanners();
+    
+    // 版本不一致时清除旧数据
+    if (storedVersion !== this.bannerVersion) {
+      localStorage.removeItem('hcpgn-banners');
+      localStorage.setItem('hcpgn-banner-version', this.bannerVersion);
+      this.banners = defaults;
+      this.saveBanners();
+      return;
+    }
+    
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
@@ -151,28 +163,12 @@ class BannerSlider {
     return [
       {
         id: 'banner_1',
-        image: '/images/banner-default-1.svg',
+        image: '/images/banner_1.png',
         title: '欢迎来到盒鸽 HcDove',
         titleEn: 'Welcome to HcDove',
         subtitle: '专注于游戏和科技的团队',
         subtitleEn: 'Focused on games and technology',
         link: '/',
-        active: true
-      },
-      {
-        id: 'banner_2',
-        image: '/images/banner-default-2.svg',
-        title: '游戏',
-        titleEn: 'Games',
-        link: '/#games',
-        active: true
-      },
-      {
-        id: 'banner_3',
-        image: '/images/banner-default-3.svg',
-        title: 'AI',
-        titleEn: 'AI',
-        link: '/#ai',
         active: true
       }
     ];
