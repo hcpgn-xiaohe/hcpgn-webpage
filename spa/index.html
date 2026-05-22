@@ -7,7 +7,7 @@
   <meta name="keywords" content="盒鸽,HcDove,游戏,科技,团队">
   <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/logo.svg">
-  <link rel="stylesheet" href="/css/style.css?v=1.0.8.4">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.0">
   <title>盒鸽 HcDove</title>
   <style>
     /* SPA 相关样式 */
@@ -30,7 +30,7 @@
       <div class="nav-links">
         <a href="#" class="nav-item" data-page="home" data-i18n="nav.home">主页</a>
         <a href="#" class="nav-item" data-page="games" data-i18n="nav.games">游戏</a>
-        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI制作</a>
+        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI</a>
         <a href="#" class="nav-item" data-page="about" data-i18n="nav.about">关于</a>
       </div>
       <div class="lang-switch">
@@ -63,7 +63,7 @@
 
     <!-- AI页 -->
     <section id="page-ai" class="page">
-      <h1 data-i18n="ai.title">AI制作</h1>
+      <h1 data-i18n="ai.title">AI</h1>
       <div class="games">
         <a href="/zh-cn/ai/人生已完成清单.html" class="game" target="_blank" rel="noopener">
           <img src="/images/人生已完成清单.png" alt="人生已完成清单" class="game-icon">
@@ -113,7 +113,7 @@ const i18n = {
     nav: {
       home: '主页',
       games: '游戏',
-      ai: 'AI制作',
+      ai: 'AI',
       about: '关于'
     },
     home: {
@@ -125,7 +125,7 @@ const i18n = {
       comingSoon: '更多游戏敬请期待'
     },
     ai: {
-      title: 'AI制作'
+      title: 'AI'
     },
     about: {
       title: '关于我们',
@@ -143,7 +143,7 @@ const i18n = {
     nav: {
       home: 'Home',
       games: 'Games',
-      ai: 'AI Creation',
+      ai: 'AI',
       about: 'About'
     },
     home: {
@@ -155,7 +155,7 @@ const i18n = {
       comingSoon: 'More games coming soon'
     },
     ai: {
-      title: 'AI Creation'
+      title: 'AI'
     },
     about: {
       title: 'About Us',
@@ -306,8 +306,8 @@ const App = {
     const lang = this.state.currentLang;
     const page = this.state.currentPage;
     const titles = {
-      zh: { home: '盒鸽 HcDove', games: '游戏 - 盒鸽 HcDove', ai: 'AI制作 - 盒鸽 HcDove', about: '关于 - 盒鸽 HcDove' },
-      en: { home: 'HcDove', games: 'Games - HcDove', ai: 'AI Creation - HcDove', about: 'About - HcDove' }
+      zh: { home: '盒鸽 HcDove', games: '游戏 - 盒鸽 HcDove', ai: 'AI - 盒鸽 HcDove', about: '关于 - 盒鸽 HcDove' },
+      en: { home: 'HcDove', games: 'Games - HcDove', ai: 'AI - HcDove', about: 'About - HcDove' }
     };
     document.title = titles[lang][page] || titles[lang].home;
   }

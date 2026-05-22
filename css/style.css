@@ -258,10 +258,115 @@ main h1 {
   margin: 1rem 0;
 }
 
-.social-icon {
-  width: 40px;
-  height: 40px;
+.social-icon-link {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
 }
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.social-icon-link:hover .social-icon:not(.social-icon-hover) {
+  opacity: 0;
+}
+
+.social-icon-link:hover .social-icon-hover {
+  opacity: 1;
+}
+
+.qrcode-hover:hover .qrcode-popup,
+.qrcode-hover:hover::before {
+  display: block;
+}
+
+/* 悬停桥梁：填补图标和弹窗之间的空隙，防止鼠标移入间隙时弹窗消失 */
+.qrcode-hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 10px;
+  background: transparent;
+  display: none;
+  z-index: 99;
+}
+
+.qrcode-popup {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 100;
+}
+
+.qrcode-popup img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+
+/* 二维码弹窗 */
+.qrcode-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.qrcode-content {
+  position: relative;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.qrcode-content img {
+  max-width: 300px;
+  height: auto;
+}
+
+.qrcode-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.qrcode-close:hover {
+  color: #333;
+}
+
+
 
 .font-credit {
   margin-top: 2rem;
@@ -503,7 +608,8 @@ main h1 {
 
   .footer { padding: 1.5rem 1rem 2rem; }
 
-  .social-icon { width: 35px; height: 35px; }
+  .social-icon { width: 22px; height: 22px; }
+  .social-icon-link { width: 22px; height: 22px; }
 
   .divider-1px { margin: 0; }
 }

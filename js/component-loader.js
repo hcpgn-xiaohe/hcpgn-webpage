@@ -2,6 +2,11 @@
  * 组件加载器 - 动态加载导航栏和底部组件
  */
 
+/**
+ * 组件版本号 — 修改后自动刷新浏览器缓存
+ */
+const COMPONENT_VERSION = '1.1.0';
+
 const ComponentLoader = {
   /**
    * 异步加载 HTML 组件
@@ -10,7 +15,8 @@ const ComponentLoader = {
    */
   async load(url) {
     try {
-      const response = await fetch(url);
+      const urlWithVersion = url + (url.includes('?') ? '&' : '?') + 'v=' + COMPONENT_VERSION;
+      const response = await fetch(urlWithVersion);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

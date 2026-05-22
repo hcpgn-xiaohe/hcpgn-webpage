@@ -8,8 +8,8 @@
   <link rel="canonical" href="/">
   <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/logo.svg">
-  <link rel="stylesheet" href="/css/style.css?v=1.0.9.1">
-  <link rel="stylesheet" href="/css/banner-slider.css?v=1.0.9.1">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.0">
+  <link rel="stylesheet" href="/css/banner-slider.css?v=1.1.0">
   <title>盒鸽 HcDove</title>
   <style>
     .page { display: none; }
@@ -31,7 +31,7 @@
       <div class="nav-links">
         <a href="#" class="nav-item active" data-page="home" data-i18n="nav.home">主页</a>
         <a href="#" class="nav-item" data-page="games" data-i18n="nav.games">游戏</a>
-        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI制作</a>
+        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI</a>
         <a href="#" class="nav-item" data-page="about" data-i18n="nav.about">关于</a>
       </div>
       <div class="lang-switch">
@@ -127,11 +127,31 @@
   <footer class="footer">
     <div data-i18n="footer.contact">联系我们</div>
     <div class="social-icons">
-      <a href="https://space.bilibili.com/1016692202/" title="Bilibili" data-i18n-title="social.bilibili" target="_blank" rel="noopener">
+      <a href="https://space.bilibili.com/1016692202/" title="Bilibili" data-i18n-title="social.bilibili" target="_blank" rel="noopener" class="social-icon-link">
         <img src="/images/bilibili.png" alt="Bilibili" class="social-icon">
+        <img src="/images/bilibili_color.png" alt="Bilibili" class="social-icon social-icon-hover">
       </a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAALiqkpu3Zp8I56vEpV46mEreYBIA2jFqRk-wSPZqOVbE/" title="Douyin" data-i18n-title="social.douyin" target="_blank" rel="noopener">
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAALiqkpu3Zp8I56vEpV46mEreYBIA2jFqRk-wSPZqOVbE/" title="Douyin" data-i18n-title="social.douyin" target="_blank" rel="noopener" class="social-icon-link">
         <img src="/images/douyin.png" alt="Douyin" class="social-icon">
+        <img src="/images/douyin_color.png" alt="Douyin" class="social-icon social-icon-hover">
+      </a>
+      <a href="https://www.xiaohongshu.com/user/profile/60424623000000000100272f" title="小红书" data-i18n-title="social.xiaohongshu" target="_blank" rel="noopener" class="social-icon-link">
+        <img src="/images/xhs.png" alt="小红书" class="social-icon">
+        <img src="/images/xhs_color.png" alt="小红书" class="social-icon social-icon-hover">
+      </a>
+      <a href="javascript:void(0)" title="公众号" data-i18n-title="social.wechat" class="social-icon-link qrcode-hover">
+        <img src="/images/gzh.png" alt="公众号" class="social-icon">
+        <img src="/images/gzh_color.png" alt="公众号" class="social-icon social-icon-hover">
+        <div class="qrcode-popup"><img src="/images/gzh_qrcode.png" alt="公众号"></div>
+      </a>
+      <a href="javascript:void(0)" title="视频号" data-i18n-title="social.video" class="social-icon-link qrcode-hover">
+        <img src="/images/sph.png" alt="视频号" class="social-icon">
+        <img src="/images/sph_color.png" alt="视频号" class="social-icon social-icon-hover">
+        <div class="qrcode-popup"><img src="/images/sph_qrcode.png" alt="视频号"></div>
+      </a>
+      <a href="https://makerworld.com.cn/@hcdove_01" title="MakerWorld" data-i18n-title="social.makerworld" target="_blank" rel="noopener" class="social-icon-link">
+        <img src="/images/makerworld.png" alt="MakerWorld" class="social-icon">
+        <img src="/images/makerworld_color.png" alt="MakerWorld" class="social-icon social-icon-hover">
       </a>
     </div>
     <div class="font-credit">
@@ -157,7 +177,7 @@
         about: { title: '关于我们', p1: '盒鸽 HcDove成立于2022年，是一个专注于游戏和科技的团队。', p2: '我们致力于通过技术创新，为用户带来优质的游戏体验和科技产品。', p3: '感谢您对盒鸽 HcDove的支持与关注！' },
         footer: { contact: '联系我们', font: '本网站使用', fontSuffix: '字体' },
         meta: { description: '盒鸽 HcDove - 专注于游戏和科技的团队' },
-        social: { bilibili: '哔哩哔哩', douyin: '抖音' }
+        social: { bilibili: '哔哩哔哩', douyin: '抖音', xiaohongshu: '小红书', wechat: '公众号', video: '视频号', makerworld: 'MakerWorld' }
       },
       en: {
         nav: { home: 'Home', games: 'Games', ai: 'AI', about: 'About' },
@@ -167,7 +187,7 @@
         about: { title: 'About Us', p1: 'HcDove was founded in 2022, focusing on games and technology.', p2: 'We are committed to bringing high-quality gaming experiences and technology products.', p3: 'Thank you for your support and attention to HcDove!' },
         footer: { contact: 'Contact Us', font: 'This website uses', fontSuffix: 'font' },
         meta: { description: 'HcDove - Focused on games and technology' },
-        social: { bilibili: 'Bilibili', douyin: 'Douyin' }
+        social: { bilibili: 'Bilibili', douyin: 'Douyin', xiaohongshu: 'Xiaohongshu', wechat: 'WeChat Official Accounts', video: 'WeChat Channels', makerworld: 'MakerWorld' }
       }
     };
 
@@ -342,7 +362,7 @@
     document.addEventListener('DOMContentLoaded', () => App.init());
   </script>
   <!-- Banner轮播组件 -->
-  <script src="/js/banner-slider.js?v=1.0.9.1"></script>
+  <script src="/js/banner-slider.js?v=1.1.0"></script>
   <script>
     function initBanner() {
       const slider = new BannerSlider({

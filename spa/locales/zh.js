@@ -8,7 +8,7 @@ export default {
   nav: {
     home: '主页',
     games: '游戏',
-    ai: 'AI制作',
+    ai: 'AI',
     about: '关于'
   },
 
@@ -29,8 +29,8 @@ export default {
 
   // ========== AI页 ==========
   ai: {
-    title: 'AI制作',
-    description: 'AI驱动的创新工具'
+    title: 'AI',
+    description: 'AI智能体和工具'
   },
 
   // ========== 关于页 ==========

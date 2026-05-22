@@ -6,7 +6,7 @@
   <meta name="description" content="盒鸽 HcDove - 专注于游戏和科技的团队">
   <meta name="keywords" content="盒鸽,HcDove,游戏,科技,团队">
   <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32">
-  <link rel="stylesheet" href="/css/style.css?v=1.0.8.4">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.0">
   <title>盒鸽 HcDove</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
       <div class="nav-links">
         <a href="#" class="nav-item active" data-page="home" data-i18n="nav.home">主页</a>
         <a href="#" class="nav-item" data-page="games" data-i18n="nav.games">游戏</a>
-        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI制作</a>
+        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI</a>
         <a href="#" class="nav-item" data-page="about" data-i18n="nav.about">关于</a>
       </div>
       <div class="lang-switch">
@@ -50,8 +50,8 @@
 
     <!-- AI页 -->
     <section id="page-ai" class="page">
-      <h1 data-i18n="ai.title">AI制作</h1>
-      <p data-i18n="ai.description">AI驱动的创新工具</p>
+      <h1 data-i18n="ai.title">AI</h1>
+      <p data-i18n="ai.description">AI智能体和工具</p>
     </section>
 
     <!-- 关于页 -->
@@ -93,18 +93,18 @@
     // ========== 语言数据 ==========
     const locales = {
       zh: {
-        nav: { home: '主页', games: '游戏', ai: 'AI制作', about: '关于' },
+        nav: { home: '主页', games: '游戏', ai: 'AI', about: '关于' },
         home: { title: '盒鸽 HcDove', subtitle: '专注于游戏和科技的团队', description: '成立于2022年，致力于为用户带来优质的游戏体验和科技产品' },
         games: { title: '游戏', comingSoon: '更多游戏敬请期待' },
-        ai: { title: 'AI制作', description: 'AI驱动的创新工具' },
+        ai: { title: 'AI', description: 'AI智能体和工具' },
         about: { title: '关于我们', p1: '盒鸽 HcDove成立于2022年，是一个专注于游戏和科技的团队。', p2: '我们致力于通过技术创新，为用户带来优质的游戏体验和科技产品。', p3: '感谢您对盒鸽 HcDove的支持与关注！' },
         footer: { contact: '联系我们', font: '本网站使用', fontSuffix: '字体' }
       },
       en: {
-        nav: { home: 'Home', games: 'Games', ai: 'AI Creation', about: 'About' },
+        nav: { home: 'Home', games: 'Games', ai: 'AI', about: 'About' },
         home: { title: 'HcDove', subtitle: 'Focused on games and technology', description: 'Founded in 2022, dedicated to bringing high-quality gaming experiences and technology products' },
         games: { title: 'Games', comingSoon: 'More games coming soon' },
-        ai: { title: 'AI Creation', description: 'AI-driven innovative tools' },
+        ai: { title: 'AI', description: 'AI Agents and tools' },
         about: { title: 'About Us', p1: 'HcDove was founded in 2022, focusing on games and technology.', p2: 'We are committed to bringing high-quality gaming experiences and technology products.', p3: 'Thank you for your support and attention to HcDove!' },
         footer: { contact: 'Contact Us', font: 'This website uses', fontSuffix: 'font' }
       }
