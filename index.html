@@ -1,25 +1,387 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>盒鸽 HcDove</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="盒鸽 HcDove - 专注于游戏和科技的团队">
+  <meta name="keywords" content="盒鸽,HcDove,游戏,科技,团队">
+  <link rel="canonical" href="/">
+  <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/logo.svg">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.0">
+  <link rel="stylesheet" href="/css/banner-slider.css?v=1.1.0">
+  <title>盒鸽 HcDove</title>
+  <style>
+    .page { display: none; }
+    .page.active { display: block; }
+    .page-transition { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <header class="navbar">
+    <a href="#" class="nav-item" data-page="home">
+      <img src="/images/logo.svg" alt="Logo" class="logo">
+    </a>
+    <button class="hamburger" aria-label="菜单">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <div class="nav-menu">
+      <div class="nav-links">
+        <a href="#" class="nav-item active" data-page="home" data-i18n="nav.home">主页</a>
+        <a href="#" class="nav-item" data-page="games" data-i18n="nav.games">游戏</a>
+        <a href="#" class="nav-item" data-page="ai" data-i18n="nav.ai">AI</a>
+        <a href="#" class="nav-item" data-page="about" data-i18n="nav.about">关于</a>
+      </div>
+      <div class="lang-switch">
+        <a href="#" class="lang-btn active" data-lang="zh">中</a>
+        <span class="or1">|</span>
+        <a href="#" class="lang-btn" data-lang="en">En</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- 多语言版本声明 -->
-    <link rel="alternate" hreflang="zh-CN" href="/zh-cn/" />
-    <link rel="alternate" hreflang="en-US" href="/en-us/" />
-    <link rel="alternate" hreflang="x-default" href="/zh-cn/" />
+  <!-- 页面容器 -->
+  <main id="app" class="content">
+    <!-- 首页 Banner 轮播 -->
+    <section id="page-home" class="page active page-transition">
+      <div id="banner-slider"></div>
+      <div class="home-categories">
+        <a href="#" class="category-card" data-page="games">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48">
+              <path fill="currentColor" d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+            </svg>
+          </div>
+          <h3 data-i18n="nav.games">游戏</h3>
+        </a>
+        <a href="#" class="category-card" data-page="ai">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48">
+              <path fill="currentColor" d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+          </div>
+          <h3 data-i18n="nav.ai">AI</h3>
+        </a>
+        <a href="#" class="category-card" data-page="about">
+          <div class="category-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48">
+              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+          </div>
+          <h3 data-i18n="nav.about">关于</h3>
+        </a>
+      </div>
+    </section>
 
-    <!-- 样式表 -->
-    <link rel="stylesheet" href="/css/style.css" />
-    <!-- 网站图标 -->
-    <link rel="icon" href="/images/logo.svg" type="image/svg+xml" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/images/logo.svg" />
+    <!-- 游戏页 -->
+    <section id="page-games" class="page page-transition">
+      <h1 data-i18n="games.title">游戏</h1>
+      <div class="games">
+        <a href="/zh-cn/games/studytousegodot/" class="game" target="_blank" rel="noopener">
+          <img src="/images/studytousegodot.png" alt="studytousegodot" class="game-icon">
+          <div class="game-title" data-i18n="games.godot">学习使用Godot</div>
+        </a>
+      </div>
+    </section>
 
-    <!-- 语言检测脚本 -->
-    <script src="/js/lang-detection.js"></script>
-  </head>
-  <body>
-    <!-- 页面内容将由语言检测后重定向到对应版本 -->
-  </body>
+    <!-- AI页 -->
+    <section id="page-ai" class="page page-transition">
+      <h1 data-i18n="ai.title">AI</h1>
+      <div class="ai-categories">
+        <div class="ai-category">
+          <h2 data-i18n="ai.agent">AI智能体</h2>
+          <div class="games">
+            <a href="https://yuanqi.tencent.com/webim/#/chat/NNFmuE?appid=2052413862960204992&experience=true" class="game" target="_blank" rel="noopener">
+              <img src="/images/tage.png" alt="塔鸽" class="game-icon">
+              <div class="game-title" data-i18n="ai.tage">塔鸽</div>
+            </a>
+          </div>
+        </div>
+        <div class="ai-category-divider"></div>
+        <div class="ai-category">
+          <h2 data-i18n="ai.tools">AI工具</h2>
+          <div class="games">
+            <a href="/zh-cn/ai/人生已完成清单.html" class="game" target="_blank" rel="noopener">
+              <img src="/images/人生已完成清单.png" alt="人生已完成清单" class="game-icon">
+              <div class="game-title" data-i18n="ai.lifechecklist">人生已完成清单</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于页 -->
+    <section id="page-about" class="page page-transition">
+      <h1 data-i18n="about.title">关于我们</h1>
+      <p data-i18n="about.p1">盒鸽 HcDove成立于2022年，是一个专注于游戏和科技的团队。</p>
+      <p data-i18n="about.p2">我们致力于通过技术创新，为用户带来优质的游戏体验和科技产品。</p>
+      <p data-i18n="about.p3">感谢您对盒鸽 HcDove的支持与关注！</p>
+    </section>
+  </main>
+
+  <div class="divider-1px"></div>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <div data-i18n="footer.contact">联系我们</div>
+    <div class="social-icons">
+      <a href="https://space.bilibili.com/1016692202/" title="Bilibili" data-i18n-title="social.bilibili" target="_blank" rel="noopener" class="social-icon-link">
+        <img src="/images/bilibili.png" alt="Bilibili" class="social-icon">
+        <img src="/images/bilibili_color.png" alt="Bilibili" class="social-icon social-icon-hover">
+      </a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAALiqkpu3Zp8I56vEpV46mEreYBIA2jFqRk-wSPZqOVbE/" title="Douyin" data-i18n-title="social.douyin" target="_blank" rel="noopener" class="social-icon-link">
+        <img src="/images/douyin.png" alt="Douyin" class="social-icon">
+        <img src="/images/douyin_color.png" alt="Douyin" class="social-icon social-icon-hover">
+      </a>
+      <a href="https://www.xiaohongshu.com/user/profile/60424623000000000100272f" title="小红书" data-i18n-title="social.xiaohongshu" target="_blank" rel="noopener" class="social-icon-link">
+        <img src="/images/xhs.png" alt="小红书" class="social-icon">
+        <img src="/images/xhs_color.png" alt="小红书" class="social-icon social-icon-hover">
+      </a>
+      <a href="javascript:void(0)" title="公众号" data-i18n-title="social.wechat" class="social-icon-link qrcode-hover">
+        <img src="/images/gzh.png" alt="公众号" class="social-icon">
+        <img src="/images/gzh_color.png" alt="公众号" class="social-icon social-icon-hover">
+        <div class="qrcode-popup"><img src="/images/gzh_qrcode.png" alt="公众号"></div>
+      </a>
+      <a href="javascript:void(0)" title="视频号" data-i18n-title="social.video" class="social-icon-link qrcode-hover">
+        <img src="/images/sph.png" alt="视频号" class="social-icon">
+        <img src="/images/sph_color.png" alt="视频号" class="social-icon social-icon-hover">
+        <div class="qrcode-popup"><img src="/images/sph_qrcode.png" alt="视频号"></div>
+      </a>
+      <a href="https://makerworld.com.cn/@hcdove_01" title="MakerWorld" data-i18n-title="social.makerworld" target="_blank" rel="noopener" class="social-icon-link">
+        <img src="/images/makerworld.png" alt="MakerWorld" class="social-icon">
+        <img src="/images/makerworld_color.png" alt="MakerWorld" class="social-icon social-icon-hover">
+      </a>
+    </div>
+    <div class="font-credit">
+      <span data-i18n="footer.font">本网站使用</span>
+      <a href="https://hyperos.mi.com/font/" target="_blank" rel="noopener">MiSans</a>
+      <span data-i18n="footer.fontSuffix">字体</span>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * 多语言 SPA 应用
+     * 统一管理中英文界面，无刷新切换
+     */
+
+    // ========== 语言数据 ==========
+    const locales = {
+      zh: {
+        nav: { home: '主页', games: '游戏', ai: 'AI', about: '关于' },
+        home: { subtitle: '专注于游戏和科技的团队', description: '成立于2022年，致力于为用户带来优质的游戏体验和科技产品' },
+        games: { title: '游戏', comingSoon: '更多游戏敬请期待', godot: '学习使用Godot' },
+        ai: { title: 'AI', agent: 'AI智能体', tools: 'AI工具', comingSoon: '更多内容敬请期待', tage: '塔鸽', lifechecklist: '人生已完成清单' },
+        about: { title: '关于我们', p1: '盒鸽 HcDove成立于2022年，是一个专注于游戏和科技的团队。', p2: '我们致力于通过技术创新，为用户带来优质的游戏体验和科技产品。', p3: '感谢您对盒鸽 HcDove的支持与关注！' },
+        footer: { contact: '联系我们', font: '本网站使用', fontSuffix: '字体' },
+        meta: { description: '盒鸽 HcDove - 专注于游戏和科技的团队' },
+        social: { bilibili: '哔哩哔哩', douyin: '抖音', xiaohongshu: '小红书', wechat: '公众号', video: '视频号', makerworld: 'MakerWorld' }
+      },
+      en: {
+        nav: { home: 'Home', games: 'Games', ai: 'AI', about: 'About' },
+        home: { subtitle: 'Focused on games and technology', description: 'Founded in 2022, dedicated to bringing high-quality gaming experiences and technology products' },
+        games: { title: 'Games', comingSoon: 'More games coming soon', godot: 'Study to use Godot' },
+        ai: { title: 'AI', agent: 'AI Agents', tools: 'AI Tools', comingSoon: 'More coming soon', tage: 'Tage', lifechecklist: 'Life Checklist' },
+        about: { title: 'About Us', p1: 'HcDove was founded in 2022, focusing on games and technology.', p2: 'We are committed to bringing high-quality gaming experiences and technology products.', p3: 'Thank you for your support and attention to HcDove!' },
+        footer: { contact: 'Contact Us', font: 'This website uses', fontSuffix: 'font' },
+        meta: { description: 'HcDove - Focused on games and technology' },
+        social: { bilibili: 'Bilibili', douyin: 'Douyin', xiaohongshu: 'Xiaohongshu', wechat: 'WeChat Official Accounts', video: 'WeChat Channels', makerworld: 'MakerWorld' }
+      }
+    };
+
+    // ========== i18n 核心 ==========
+    class I18n {
+      constructor() {
+        const browserLang = navigator.language.startsWith('en') ? 'en' : 'zh';
+        this.currentLang = localStorage.getItem('hcpgn-lang') || browserLang;
+        this.translations = locales;
+        this.listeners = [];
+      }
+
+      getNestedValue(obj, path) {
+        return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+      }
+
+      t(key) {
+        const val = this.getNestedValue(this.translations[this.currentLang], key);
+        return val !== undefined ? val : key;
+      }
+
+      setLang(lang) {
+        if (!this.translations[lang]) return;
+        this.currentLang = lang;
+        localStorage.setItem('hcpgn-lang', lang);
+        this.updateDOM();
+        this.updateLangButtons();
+        this.updateMeta();
+        this.listeners.forEach(fn => fn(lang));
+        this.updatePageTitle();
+      }
+
+      getLang() { return this.currentLang; }
+
+      onChange(fn) { this.listeners.push(fn); }
+
+      updateDOM() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if (key) el.textContent = this.t(key);
+        });
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+          const key = el.dataset.i18nTitle;
+          if (key) el.title = this.t(key);
+        });
+      }
+
+      updateLangButtons() {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === this.currentLang);
+        });
+        document.documentElement.lang = this.currentLang === 'zh' ? 'zh-CN' : 'en-US';
+      }
+      
+      updateMeta() {
+        // 更新 meta description
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.content = this.t('meta.description');
+        }
+      }
+
+      updatePageTitle() {
+        const titles = {
+          zh: { home: '主页 - 盒鸽 HcDove', games: '游戏 - 盒鸽 HcDove', ai: 'AI - 盒鸽 HcDove', about: '关于 - 盒鸽 HcDove' },
+          en: { home: 'Home - HcDove', games: 'Games - HcDove', ai: 'AI - HcDove', about: 'About - HcDove' }
+        };
+        document.title = titles[this.currentLang][App.state.currentPage] || titles[this.currentLang].home;
+      }
+    }
+
+    const i18n = new I18n();
+
+    // ========== SPA 应用 ==========
+    window.App = {
+      state: { currentPage: 'home' },
+
+      init() {
+        // 初始化时检查 URL hash
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+          // 支持 #home-zh, #home-zh-cn 等格式，提取基础页面名
+          const pageMatch = hash.match(/^([a-z]+?)(?:-[a-z]+)?$/);
+          const page = pageMatch ? pageMatch[1] : hash;
+          if (document.getElementById(`page-${page}`)) {
+            this.navigateTo(page);
+          }
+        }
+        
+        i18n.updateDOM();
+        i18n.updateLangButtons();
+        this.bindEvents();
+        console.log('[SPA] 初始化完成，当前语言:', i18n.getLang());
+      },
+
+      bindEvents() {
+        // 语言切换
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            i18n.setLang(e.target.dataset.lang);
+          });
+        });
+
+        // 导航切换
+        document.querySelectorAll('[data-page]').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = e.target.dataset.page || e.target.closest('[data-page]')?.dataset.page;
+            if (page) this.navigateTo(page);
+          });
+        });
+
+        // 汉堡菜单
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger?.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+        });
+
+        // 点击菜单外部关闭
+        document.addEventListener('click', (e) => {
+          if (!hamburger?.contains(e.target) && !navMenu?.contains(e.target)) {
+            hamburger?.classList.remove('active');
+            navMenu?.classList.remove('active');
+          }
+        });
+
+        // Hash 导航支持
+        window.addEventListener('hashchange', () => {
+          const hash = window.location.hash.slice(1);
+          if (hash) {
+            // 支持 #home-zh, #home-zh-cn 等格式，提取基础页面名
+            const pageMatch = hash.match(/^([a-z]+?)(?:-[a-z]+)?$/);
+            const page = pageMatch ? pageMatch[1] : hash;
+            if (document.getElementById(`page-${page}`)) {
+              this.navigateTo(page);
+            }
+          }
+        });
+      },
+
+      navigateTo(page) {
+        if (!document.getElementById(`page-${page}`)) return;
+        
+        // 隐藏所有页面
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        
+        // 显示目标页面
+        const targetPage = document.getElementById(`page-${page}`);
+        targetPage.classList.add('active');
+        
+        // 更新导航高亮
+        document.querySelectorAll('[data-page]').forEach(link => {
+          link.classList.toggle('active', link.dataset.page === page);
+        });
+        
+        this.state.currentPage = page;
+        
+        // 更新 hash（不带语言后缀）
+        if (window.location.hash !== `#${page}`) {
+          history.replaceState(null, '', `#${page}`);
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        i18n.updatePageTitle();
+      }
+    };
+
+    // 启动
+    document.addEventListener('DOMContentLoaded', () => App.init());
+  </script>
+  <!-- Banner轮播组件 -->
+  <script src="/js/banner-slider.js?v=1.1.0"></script>
+  <script>
+    function initBanner() {
+      const slider = new BannerSlider({
+        container: '#banner-slider',
+        autoPlay: true,
+        interval: 5000
+      });
+      
+      // 语言切换时更新banner标题
+      i18n.onChange(() => {
+        slider.updateLang();
+      });
+      
+      return slider;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initBanner();
+    });
+  </script>
+</body>
 </html>

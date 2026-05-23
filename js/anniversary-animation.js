@@ -3,6 +3,7 @@
  */
 
 const initAnniversaryAnimation = () => {
+  console.log('[Anniversary] 初始化四周年动画');
   const style = document.createElement("style");
   style.id = "anniversary-styles";
   style.textContent = `
