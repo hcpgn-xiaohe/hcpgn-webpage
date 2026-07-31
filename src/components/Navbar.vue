@@ -27,7 +27,7 @@
         </a>
       </div>
       <div class="nav-right">
-        <NotificationCenter />
+        <NotificationCenter @navigate="closeMenu" />
         <div class="lang-switch" ref="langRef">
           <button
             class="lang-globe-btn"
@@ -79,7 +79,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { setLanguage } from '@/i18n'
@@ -129,7 +129,14 @@ function closeLang() {
 function switchLang(lang) {
   setLanguage(lang)
   closeLang()
+  closeMenu()
 }
+
+// 任何路由跳转后收起展开的移动端菜单和弹窗
+watch(() => route.fullPath, () => {
+  menuOpen.value = false
+  langOpen.value = false
+})
 
 function handleClickOutside(e) {
   // 汉堡菜单外部点击

@@ -728,11 +728,37 @@ body {
     margin-left: 0;
   }
 
+  /* 语言弹窗：移动端改为底部抽屉 */
+  .lang-dropdown-overlay {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
   .lang-dropdown {
+    position: fixed;
     top: auto;
-    right: 50%;
-    transform: translateX(50%);
-    width: 240px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    border-radius: 16px 16px 0 0;
+    border: none;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.18);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .lang-dropdown-header {
+    padding: 16px 20px 10px;
+    font-size: 13px;
+  }
+
+  .lang-option {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .lang-dropdown-enter-from .lang-dropdown,
+  .lang-dropdown-leave-to .lang-dropdown {
+    transform: translateY(100%);
   }
 
   .hamburger.active .bar:nth-child(1) {
@@ -1081,15 +1107,35 @@ body {
 
 /* ==================== 移动端通知面板 ==================== */
 @media (max-width: 768px) {
+  /* 底部抽屉式弹出，避免 top:auto 导致的定位错乱 */
   .notif-panel {
     position: fixed;
+    top: auto;
+    bottom: 0;
     left: 0;
     right: 0;
-    top: auto;
-    max-width: 100%;
     width: 100%;
-    border-radius: 12px 12px 0 0;
-    max-height: 60vh;
+    max-width: 100%;
+    max-height: 72vh;
+    border: none;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.18);
+    z-index: 2000;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .notif-panel-enter-from,
+  .notif-panel-leave-to {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+
+  .notif-panel-header {
+    padding: 16px;
+  }
+
+  .notif-item {
+    padding: 14px 16px;
   }
 
   .notif-bell {
@@ -1271,10 +1317,15 @@ body {
 
 /* ==================== 移动端详情弹窗 ==================== */
 @media (max-width: 768px) {
+  .notif-detail-overlay {
+    padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+    align-items: flex-end;
+  }
+
   .notif-detail-modal {
     max-width: 100%;
     max-height: 85vh;
-    border-radius: 12px;
+    border-radius: 16px;
   }
 
   .notif-detail-body {

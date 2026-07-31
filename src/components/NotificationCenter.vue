@@ -5,7 +5,7 @@
       class="notif-bell"
       :class="{ active: panelOpen }"
       :aria-label="t('notification.title')"
-      @click="togglePanel"
+      @click.stop="togglePanel"
     >
       <svg viewBox="0 0 24 24" width="20" height="20" class="bell-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
@@ -16,13 +16,13 @@
 
     <!-- 通知面板 -->
     <transition name="notif-panel">
-      <div v-if="panelOpen && !selectedNotif" class="notif-panel">
+      <div v-if="panelOpen && !selectedNotif" class="notif-panel" @click.stop>
         <div class="notif-panel-header">
           <span class="notif-panel-title">{{ t('notification.title') }}</span>
           <button
             v-if="unreadCount > 0"
             class="notif-mark-all"
-            @click="markAllRead"
+            @click.stop="markAllRead"
           >
             {{ t('notification.markAllRead') }}
           </button>
@@ -40,7 +40,7 @@
               v-for="notif in visibleNotifications"
               :key="notif.id"
               class="notif-item"
-              :class="{ unread: !isRead(notif.id) }"
+              :class="{ unread: !isRead(notif) }"
               @click.stop="openDetail(notif)"
             >
               <div class="notif-item-dot" :class="`type-${notif.type || 'info'}`"></div>
@@ -50,11 +50,11 @@
                   <span class="notif-item-date">{{ relTime(notif.datetime || notif.date) }}</span>
                 </div>
                 <p class="notif-item-text">{{ getContent(notif) }}</p>
-                <div v-if="!isRead(notif.id)" class="notif-item-unread-tag">{{ t('notification.unread') }}</div>
+                <div v-if="!isRead(notif)" class="notif-item-unread-tag">{{ t('notification.unread') }}</div>
               </div>
             </div>
 
-            <div v-if="hasMore" class="notif-view-all" @click="goToAllNotifications">
+            <div v-if="hasMore" class="notif-view-all" @click.stop="goToAllNotifications">
               <span>{{ t('notification.viewAll') }}</span>
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 6 15 12 9 18" />
@@ -88,16 +88,17 @@
             <h3 class="notif-detail-title">{{ getTitle(selectedNotif) }}</h3>
             <div class="notif-detail-meta">
               <span class="notif-detail-date">{{ fullDateTime(selectedNotif.datetime || selectedNotif.date) }}</span>
-              <span v-if="isRead(selectedNotif.id)" class="notif-detail-read-tag">{{ t('notification.readTag') }}</span>
+              <span v-if="isRead(selectedNotif)" class="notif-detail-read-tag">{{ t('notification.readTag') }}</span>
             </div>
             <div class="notif-detail-content">{{ getContent(selectedNotif) }}</div>
 
             <a
               v-if="selectedNotif.link && selectedNotif.linkText"
               :href="selectedNotif.link"
-              :target="selectedNotif.link.startsWith('http') ? '_blank' : undefined"
-              :rel="selectedNotif.link.startsWith('http') ? 'noopener' : undefined"
+              :target="isExternal(selectedNotif.link) ? '_blank' : undefined"
+              :rel="isExternal(selectedNotif.link) ? 'noopener' : undefined"
               class="notif-detail-link"
+              @click="onLinkClick($event, selectedNotif.link)"
             >
               {{ getLinkText(selectedNotif) }} →
             </a>
@@ -113,7 +114,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useFetchData } from '@/composables/useFetchData'
@@ -122,10 +123,12 @@ import { formatRelativeTime, formatFullDateTime } from '@/composables/useNotific
 
 const MAX_VISIBLE = 5
 
+const emit = defineEmits(['navigate'])
+
 const { t, locale } = useI18n()
 const router = useRouter()
 
-const { readIds, isRead, markAsRead, markAllRead: markAllReadShared } = useNotificationReadState()
+const { isRead, markAsRead, markAllRead: markAllReadShared } = useNotificationReadState()
 
 const root = ref(null)
 const panelOpen = ref(false)
@@ -151,7 +154,7 @@ const hasMore = computed(() => {
 })
 
 const unreadCount = computed(() => {
-  return activeNotifications.value.filter(n => !readIds.value.has(n.id)).length
+  return activeNotifications.value.filter(n => !isRead(n)).length
 })
 
 // 包装函数 — 确保传入 locale / t
@@ -174,7 +177,7 @@ function typeLabel(type) {
 }
 
 function markAllRead() {
-  markAllReadShared(activeNotifications.value.map(n => n.id))
+  markAllReadShared(activeNotifications.value)
 }
 
 function togglePanel() {
@@ -191,6 +194,8 @@ function closePanel() {
 function openDetail(notif) {
   selectedNotif.value = notif
   markAsRead(notif.id)
+  // 移动端：详情弹出时收起展开的导航菜单
+  emit('navigate')
 }
 
 function closeDetail() {
@@ -200,7 +205,22 @@ function closeDetail() {
 function goToAllNotifications() {
   selectedNotif.value = null
   panelOpen.value = false
+  emit('navigate')
   router.push('/notifications')
+}
+
+function isExternal(link) {
+  return /^(https?:)?\/\//.test(link)
+}
+
+// 站内链接走路由跳转，避免整页刷新
+function onLinkClick(e, link) {
+  if (isExternal(link)) return
+  e.preventDefault()
+  selectedNotif.value = null
+  panelOpen.value = false
+  emit('navigate')
+  router.push(link)
 }
 
 function getTitle(notif) {
@@ -232,12 +252,18 @@ function handleEscape(e) {
   }
 }
 
+// 详情弹窗打开时锁定页面滚动，避免移动端背景滚动穿透
+watch(selectedNotif, (val) => {
+  document.body.style.overflow = val ? 'hidden' : ''
+})
+
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
   document.addEventListener('keydown', handleEscape)
 })
 
 onUnmounted(() => {
+  document.body.style.overflow = ''
   document.removeEventListener('click', handleClickOutside)
   document.removeEventListener('keydown', handleEscape)
 })

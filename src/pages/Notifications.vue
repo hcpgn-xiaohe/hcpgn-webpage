@@ -21,7 +21,7 @@
           v-for="notif in activeNotifications"
           :key="notif.id"
           class="notif-card"
-          :class="{ unread: !isRead(notif.id) }"
+          :class="{ unread: !isRead(notif) }"
           @click="openDetail(notif)"
         >
           <div class="notif-card-left">
@@ -61,16 +61,17 @@
               <h3 class="notif-detail-title">{{ getTitle(selectedNotif) }}</h3>
               <div class="notif-detail-meta">
                 <span class="notif-detail-date">{{ fullDateTime(selectedNotif.datetime || selectedNotif.date) }}</span>
-                <span v-if="isRead(selectedNotif.id)" class="notif-detail-read-tag">{{ t('notification.readTag') }}</span>
+                <span v-if="isRead(selectedNotif)" class="notif-detail-read-tag">{{ t('notification.readTag') }}</span>
               </div>
               <div class="notif-detail-content">{{ getContent(selectedNotif) }}</div>
 
               <a
                 v-if="selectedNotif.link && selectedNotif.linkText"
                 :href="selectedNotif.link"
-                :target="selectedNotif.link.startsWith('http') ? '_blank' : undefined"
-                :rel="selectedNotif.link.startsWith('http') ? 'noopener' : undefined"
+                :target="isExternal(selectedNotif.link) ? '_blank' : undefined"
+                :rel="isExternal(selectedNotif.link) ? 'noopener' : undefined"
                 class="notif-detail-link"
+                @click="onLinkClick($event, selectedNotif.link)"
               >
                 {{ getLinkText(selectedNotif) }} →
               </a>
@@ -83,15 +84,17 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { useFetchData } from '@/composables/useFetchData'
 import { useNotificationReadState } from '@/composables/useNotificationReadState'
 import { formatRelativeTime, formatFullDateTime } from '@/composables/useNotificationHelpers'
 
 const { t, locale } = useI18n()
+const router = useRouter()
 
-const { readIds, isRead, markAsRead } = useNotificationReadState()
+const { isRead, markAsRead } = useNotificationReadState()
 
 const selectedNotif = ref(null)
 
@@ -132,6 +135,18 @@ function closeDetail() {
   selectedNotif.value = null
 }
 
+function isExternal(link) {
+  return /^(https?:)?\/\//.test(link)
+}
+
+// 站内链接走路由跳转，避免整页刷新
+function onLinkClick(e, link) {
+  if (isExternal(link)) return
+  e.preventDefault()
+  selectedNotif.value = null
+  router.push(link)
+}
+
 function getTitle(notif) {
   return locale.value === 'en' && notif.titleEn ? notif.titleEn : notif.title
 }
@@ -151,11 +166,17 @@ function handleEscape(e) {
   }
 }
 
+// 详情弹窗打开时锁定页面滚动，避免移动端背景滚动穿透
+watch(selectedNotif, (val) => {
+  document.body.style.overflow = val ? 'hidden' : ''
+})
+
 onMounted(() => {
   document.addEventListener('keydown', handleEscape)
 })
 
 onUnmounted(() => {
+  document.body.style.overflow = ''
   document.removeEventListener('keydown', handleEscape)
 })
 </script>
