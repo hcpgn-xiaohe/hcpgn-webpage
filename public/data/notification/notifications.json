@@ -1,0 +1,20 @@
+{
+  "version": "1.1.1",
+  "updatedAt": "2026-08-01T00:00:00+08:00",
+  "notifications": [
+    {
+      "id": "notif_v111",
+      "type": "update",
+      "title": "盒鸽HcDove官网V1.1.1更新日志",
+      "titleEn": "HcDove Website V1.1.1 Update Log",
+      "content": "本次更新为小版本更新，详细更新内容请点击下方查看详情。",
+      "contentEn": "This is a minor version update. Please click the link below to view the full details.",
+      "datetime": "2026-08-01T00:00:00+08:00",
+      "date": "2026-08-01",
+      "active": true,
+      "link": "https://mp.weixin.qq.com/s/Ll276eauD5iUZrPqCtBRCg",
+      "linkText": "查看详情",
+      "linkTextEn": "View Details"
+    }
+  ]
+}

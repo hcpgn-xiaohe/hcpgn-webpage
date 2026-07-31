@@ -1,0 +1,36 @@
+{
+  "version": "1.1.1",
+  "updatedAt": "2026-07-30T16:00:00+08:00",
+  "categories": [
+    {
+      "key": "agent",
+      "title": "AI智能体",
+      "titleEn": "AI Agents",
+      "items": [
+        {
+          "id": "tage",
+          "icon": "/data/ai/tage.png",
+          "title": "塔鸽",
+          "titleEn": "Tage",
+          "link": "https://yuanqi.tencent.com/webim/#/chat/NNFmuE?appid=2052413862960204992&experience=true",
+          "external": true
+        }
+      ]
+    },
+    {
+      "key": "tools",
+      "title": "AI工具",
+      "titleEn": "AI Tools",
+      "items": [
+        {
+          "id": "lifechecklist",
+          "icon": "/data/ai/life-checklist.png",
+          "title": "人生已完成清单",
+          "titleEn": "Life Checklist",
+          "link": "/zh-cn/ai/人生已完成清单.html",
+          "external": true
+        }
+      ]
+    }
+  ]
+}
